@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DataAnnotationsExtensions" Version="5.0.1.27" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Filmy\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Filmy\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Filmy\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Filmy\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Filmy\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Konta\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Konta\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Konta\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Konta\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Konta\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wypozyczenia\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wypozyczenia\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wypozyczenia\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wypozyczenia\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Wypozyczenia\Index.cshtml" />
+    </ItemGroup>
+
+</Project>

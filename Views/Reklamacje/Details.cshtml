@@ -1,0 +1,49 @@
+@model WypozyczalniaFilmow.Models.reklamacje
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>reklamacje</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nrReklamacji)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nrReklamacji)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.tresc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.tresc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nrWypozyczenia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nrWypozyczenia)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.nrReklamacji">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

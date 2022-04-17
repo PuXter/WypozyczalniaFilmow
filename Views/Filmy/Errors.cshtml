@@ -1,0 +1,22 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    @Html.Raw("Already ordered!")
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

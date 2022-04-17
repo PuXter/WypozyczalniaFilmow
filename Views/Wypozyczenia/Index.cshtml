@@ -1,0 +1,73 @@
+@model IEnumerable<WypozyczalniaFilmow.Models.wypozyczenia>
+
+@{
+    ViewData["Title"] = "Wypożyczenia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Wypożyczenia</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dataWypozyczenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waznosc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.aktywna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tytulFilmu)
+            </th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.IdentityUser)
+                </th> 
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataWypozyczenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Waznosc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.aktywna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tytulFilmu)
+            </td>
+            
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdentityUserId)
+                </td>
+            }
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.nrWypozyczenia">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.nrWypozyczenia">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.nrWypozyczenia">Delete</a>
+                }
+                @if (User.IsInRole("Klient"))
+                {
+                    <a asp-action="Details" asp-route-id="@item.nrWypozyczenia">Details</a>
+                    <a asp-action="Complain" asp-route-id="@item.nrWypozyczenia">Complain</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

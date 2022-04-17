@@ -1,0 +1,54 @@
+@model IEnumerable<WypozyczalniaFilmow.Models.reklamacje>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Reklamacje</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tresc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nrWypozyczenia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tresc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nrWypozyczenia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.nrReklamacji">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.nrReklamacji">Details</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@item.nrReklamacji">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

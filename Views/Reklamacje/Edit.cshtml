@@ -1,0 +1,50 @@
+@model WypozyczalniaFilmow.Models.reklamacje
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>reklamacje</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="nrReklamacji" />
+            <input type="hidden" asp-for="data" />
+            <input type="hidden" asp-for="nrWypozyczenia" />
+            @if (User.IsInRole("Admin"))
+            {
+                <input type="hidden" asp-for="tresc" />
+                <div class="form-group">
+                    <label asp-for="status" class="control-label"></label>
+                    <select asp-for="status" asp-items="Html.GetEnumSelectList<Status>()" class="form-control"></select>
+                    <span asp-validation-for="status" class="text-danger"></span>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label asp-for="tresc" class="control-label"></label>
+                    <input asp-for="tresc" class="form-control" />
+                    <span asp-validation-for="tresc" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="status" />
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

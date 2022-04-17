@@ -1,0 +1,74 @@
+@model IEnumerable<WypozyczalniaFilmow.Models.filmy>
+
+@{
+    ViewData["Title"] = "Filmy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Filmy</h1>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Create">Create New</a>
+    }
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tytulFilmu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rezyser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rokProdukcji)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ocena)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tytulFilmu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rezyser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rokProdukcji)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ocena)
+        </td>
+        <td>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Edit" asp-route-id="@item.tytulFilmu">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.tytulFilmu">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.tytulFilmu">Delete</a>
+            }
+            @if (User.IsInRole("Klient"))
+            {
+                <a asp-action="Details" asp-route-id="@item.tytulFilmu">Details</a>
+                <form asp-action="Order">
+                    <input type="hidden" asp-for="@item.tytulFilmu" name="tytulFilmu"/>
+                    <input type="submit" value="Order" class="btn btn-primary"/>
+                </form>
+            }
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
